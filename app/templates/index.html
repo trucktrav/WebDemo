@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+
+{% block content %}
+    <h1> Hi, {{ user.username }}!</h1>
+
+    <ul id="myUL">
+    <ul id="assets">
+        <li><span class="caret">Assets</span>
+            {% for asset in assets %}
+                <li><span class="caret">{{ asset.id }} </span>
+                    <ul class="nested">
+                        {% for k,v in asset.__dict__.items() %}
+                            <li>{{ k }} : {{ v }} </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </li>
+    </ul>
+
+{% endblock %}
+</html>
